@@ -18,31 +18,14 @@ const doctors = [
   },
   {
     id: 2,
-    name: "Dr. Michael Johnson",
+    name: "Dr. Prasan ",
     degrees: "DPT, PhD, NCS",
     specialization: "Neurological Rehabilitation",
     experience: 15,
     image: "/placeholder.svg?height=300&width=300",
     bio: "Expert in neurological conditions including stroke recovery, spinal cord injuries, and movement disorders.",
   },
-  {
-    id: 3,
-    name: "Dr. Emily Davis",
-    degrees: "DPT, MS, CCS",
-    specialization: "Cardiopulmonary & Geriatric Care",
-    experience: 10,
-    image: "/placeholder.svg?height=300&width=300",
-    bio: "Focuses on cardiopulmonary rehabilitation and specialized care for elderly patients with complex conditions.",
-  },
-  {
-    id: 4,
-    name: "Dr. James Wilson",
-    degrees: "DPT, MS, SCS",
-    specialization: "Manual Therapy & Pain Management",
-    experience: 8,
-    image: "/placeholder.svg?height=300&width=300",
-    bio: "Certified in advanced manual therapy techniques and specializes in chronic pain management and treatment.",
-  },
+
 ]
 
 export function DoctorGrid() {
