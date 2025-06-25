@@ -97,7 +97,7 @@ export function Footer() {
                 <span className="text-gray-400">
                   123 Health Street
                   <br />
-                  Medical District, City 12345
+             L
                 </span>
               </div>
             </div>
@@ -106,7 +106,7 @@ export function Footer() {
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
           <p className="text-gray-400">
-            © 2024 PhysioHeal Clinic. All rights reserved. |
+            © 2025 PhysioHeal Clinic. All rights reserved. |
             <Link href="/privacy" className="hover:text-white transition-colors ml-1">
               Privacy Policy
             </Link>{" "}
