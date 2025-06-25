@@ -10,56 +10,48 @@ const services = [
     icon: Activity,
     description:
       "Comprehensive treatment for sports-related injuries including sprains, strains, and overuse injuries.",
-    price: "Rs120",
   },
   {
     id: 2,
     name: "Orthopedic Physical Therapy",
     icon: Shield,
     description: "Post-surgical rehabilitation and treatment for musculoskeletal conditions and joint problems.",
-    price: "Rs100",
   },
   {
     id: 3,
     name: "Neurological Rehabilitation",
     icon: Brain,
     description: "Specialized care for stroke recovery, spinal cord injuries, and neurological movement disorders.",
-    price: "Rs150",
   },
   {
     id: 4,
     name: "Cardiopulmonary Therapy",
     icon: Heart,
     description: "Rehabilitation for heart and lung conditions to improve cardiovascular and respiratory function.",
-    price: "Rs130",
   },
   {
     id: 5,
     name: "Manual Therapy",
     icon: Zap,
     description: "Hands-on techniques including joint mobilization, soft tissue massage, and myofascial release.",
-    price: "Rs90",
   },
   {
     id: 6,
     name: "Geriatric Physical Therapy",
     icon: Users,
     description: "Specialized care for age-related conditions, balance training, and fall prevention.",
-    price: "Rs110",
   },
   {
     id: 7,
     name: "Strength & Conditioning",
     icon: Dumbbell,
     description: "Personalized fitness programs to improve strength, endurance, and overall physical performance.",
-    price: "Rs80",
   },
   {
     id: 8,
     name: "Pain Management",
     icon: Stethoscope,
     description: "Comprehensive approach to chronic pain management using various therapeutic techniques.",
-    price: "Rs140",
   },
 ]
 
@@ -83,10 +75,6 @@ export function ServiceGrid() {
 
           <p className="text-gray-600 text-sm mb-4 leading-relaxed">{service.description}</p>
 
-          <div className="flex items-center justify-between">
-            <span className="text-2xl font-bold text-blue-600">{service.price}</span>
-            <span className="text-sm text-gray-500">per session</span>
-          </div>
         </motion.div>
       ))}
     </div>
