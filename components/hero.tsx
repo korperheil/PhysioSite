@@ -75,7 +75,7 @@ export function Hero() {
           >
             <div className="relative w-full h-[600px] rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/placeholder.svg?height=600&width=500"
+                src="/1.webp?height=600&width=500"
                 alt="Physiotherapist helping patient with rehabilitation exercises"
                 fill
                 className="object-cover"
