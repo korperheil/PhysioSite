@@ -82,23 +82,7 @@ export function Hero() {
                 priority
               />
             </div>
-            {/* Floating card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-lg border"
-            >
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                  <span className="text-green-600 font-bold text-xl">✓</span>
-                </div>
-                <div>
-                  <div className="font-semibold text-gray-900">98% Success Rate</div>
-                  <div className="text-sm text-gray-600">Patient Recovery</div>
-                </div>
-              </div>
-            </motion.div>
+
           </motion.div>
         </div>
       </div>
