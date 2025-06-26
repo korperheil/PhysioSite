@@ -115,10 +115,11 @@ export function Footer() {
               Terms of Service
             </Link>
           </p>
-        </div>
-<Link href="https://www.linkedin.com/in/prasan-bora/" className="hover:text-white transition-colors text-gray-400 text-center">
+          <Link href="https://www.linkedin.com/in/prasan-bora/" className="hover:text-white transition-colors text-gray-400 text-center">
              Made By Prasan 
             </Link>
+        </div>
+
       </div>
     </footer>
   )
