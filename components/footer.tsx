@@ -116,8 +116,8 @@ export function Footer() {
             </Link>
           </p>
         </div>
-<Link href="https://www.linkedin.com/in/prasan-bora/" className="hover:text-white transition-colors ml-1">
-             Made By Prasan
+<Link href="https://www.linkedin.com/in/prasan-bora/" className="hover:text-white transition-colors text-gray-400 text-center">
+             Made By Prasan 
             </Link>
       </div>
     </footer>
