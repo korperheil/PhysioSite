@@ -11,10 +11,10 @@ export function Footer() {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold">P</span>
-              </div>
-              <span className="text-xl font-bold">Körper Heil</span>
+              <Link href="/" className="flex items-center space-x-2">
+                <img src="/logo.svg" alt="Körper Heil Logo" className="w-8 h-8" />
+                <span className="text-xl font-bold ">Körper Heil</span>
+              </Link>
             </div>
             <p className="text-gray-400 leading-relaxed">
               Leading physiotherapy clinic dedicated to helping you achieve optimal health and mobility through expert
