@@ -95,7 +95,7 @@ export function Footer() {
               <div className="flex items-start space-x-3">
                 <MapPin className="w-4 h-4 text-blue-400 mt-1" />
                 <span className="text-gray-400">
-                  C-31,Second Floor, 
+                  C-31, 2nd Floor, 
                   <br />
                   Sector 15, RDC, Raj Nagar,
                   <br />

@@ -25,9 +25,9 @@ const services = [
   },
   {
     id: 4,
-    name: "Cardiopulmonary Therapy",
+    name: "Women Health Care",
     icon: Heart,
-    description: "Rehabilitation for heart and lung conditions to improve cardiovascular and respiratory function.",
+    description: "Specialized physiotherapy for women's health, including prenatal and postnatal care, pelvic floor rehabilitation, and support for hormonal and musculoskeletal changes.",
   },
   {
     id: 5,

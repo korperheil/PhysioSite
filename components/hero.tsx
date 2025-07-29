@@ -71,7 +71,7 @@ export function Hero() {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-8 pt-8 border-t">
+            {/* <div className="grid grid-cols-3 gap-8 pt-8 border-t">
               <div className="text-center">
                 <div className="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-lg mx-auto mb-2">
                   <Award className="w-6 h-6 text-blue-600" />
@@ -93,7 +93,7 @@ export function Hero() {
                 <div className="text-2xl font-bold text-gray-900">24/7</div>
                 <div className="text-sm text-gray-600">Support</div>
               </div>
-            </div>
+            </div> */}
           </motion.div>
 
           {/* Image */}

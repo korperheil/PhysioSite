@@ -11,7 +11,7 @@ export default function HomePage() {
       <Hero />
       <Philosophy />
       <QuickLinks />
-      <Testimonials />
+      {/* <Testimonials /> */}
     </>
   )
 }

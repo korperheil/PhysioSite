@@ -63,7 +63,8 @@ export function DoctorGrid() {
             </div>
 
             <p className="text-gray-600 text-sm mb-6 leading-relaxed">{doctor.expertise}</p>
-    <p className="text-gray-700 font-medium mb-3"><div>Previous Affiliations: </div> 
+    <p className="text-gray-700 font-medium mb-3"> 
+      <div>Previous Affiliations: </div> 
       {Array.isArray(doctor.previous_affiliations)
         ? (doctor.previous_affiliations ?? []).map((aff, i, arr) => (
             <span key={i}>

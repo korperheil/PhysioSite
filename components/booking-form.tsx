@@ -14,18 +14,18 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { CalendarIcon, Clock, CreditCard } from "lucide-react"
 import { format } from "date-fns"
 
-const doctors = ["Dr. Sarah Smith", "Dr. Michael Johnson", "Dr. Emily Davis", "Dr. James Wilson"]
+const doctors = ["Dr Shalini Jainth (PT)", "Dr Akash Jainth (PT)"]
 
-const services = [
-  "Sports Injury Rehabilitation - $120",
-  "Orthopedic Physical Therapy - $100",
-  "Neurological Rehabilitation - $150",
-  "Cardiopulmonary Therapy - $130",
-  "Manual Therapy - $90",
-  "Geriatric Physical Therapy - $110",
-  "Strength & Conditioning - $80",
-  "Pain Management - $140",
-]
+// const services = [
+//   "Sports Injury Rehabilitation - $120",
+//   "Orthopedic Physical Therapy - $100",
+//   "Neurological Rehabilitation - $150",
+//   "Cardiopulmonary Therapy - $130",
+//   "Manual Therapy - $90",
+//   "Geriatric Physical Therapy - $110",
+//   "Strength & Conditioning - $80",
+//   "Pain Management - $140",
+// ]
 
 const timeSlots = [
   "09:00 AM",
@@ -174,7 +174,7 @@ export function BookingForm() {
           </Select>
         </div>
 
-        <div className="space-y-2">
+        {/* <div className="space-y-2">
           <Label htmlFor="service">Select Service</Label>
           <Select value={formData.service} onValueChange={(value) => setFormData({ ...formData, service: value })}>
             <SelectTrigger>
@@ -188,7 +188,7 @@ export function BookingForm() {
               ))}
             </SelectContent>
           </Select>
-        </div>
+        </div> */}
       </div>
 
       <div className="grid md:grid-cols-2 gap-6">
