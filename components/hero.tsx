@@ -9,7 +9,7 @@ import { ArrowRight, Award, Users, Clock } from "lucide-react"
 
 const heroImages = [
   {
-    src: "/1.webp",
+    src: "https://media.istockphoto.com/id/2047970581/photo/modern-rehabilitation-physiotherapy-at-work-with-client-holding-dumbbell.jpg?b=1&s=612x612&w=0&k=20&c=lMpUmX5RRSZXYGuaLNh5Ri2KpaQOe4sPU4OnYBlurFg=",
     alt: "Physiotherapist helping patient with rehabilitation exercises",
   },
   {
