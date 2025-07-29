@@ -26,7 +26,7 @@ export function Navigation() {
             <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-xl">P</span>
             </div>
-            <span className="text-xl font-bold text-gray-900">PhysioHeal</span>
+            <span className="text-xl font-bold text-gray-900">Körper Heil</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -45,7 +45,7 @@ export function Navigation() {
             <div className="flex items-center space-x-4">
               <a href="tel:+1234567890" className="flex items-center space-x-2 text-gray-700 hover:text-blue-600">
                 <Phone className="w-4 h-4" />
-                <span className="hidden lg:inline">+1 (234) 567-890</span>
+                <span className="hidden lg:inline">+91 9910772756</span>
               </a>
               <Button asChild>
                 <Link href="/booking">Book Appointment</Link>

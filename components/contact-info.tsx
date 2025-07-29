@@ -7,25 +7,25 @@ const contactDetails = [
   {
     icon: Phone,
     title: "Phone",
-    details: ["+1 (234) 567-890", "+1 (234) 567-891"],
-    action: "tel:+1234567890",
+    details: ["+91 9910772756"],
+    action: "",
   },
   {
     icon: Mail,
     title: "Email",
-    details: ["info@physioheal.com", "appointments@physioheal.com"],
-    action: "mailto:info@physioheal.com",
+    details: ["korper.heil@gmail.com "],
+    action: "mailto:korper.heil@gmail.com",
   },
   {
     icon: MapPin,
     title: "Address",
-    details: ["123 Health Street", "Medical District, City 12345"],
+    details: ["C-31,Second Floor, Sector 15, RDC, Raj Nagar, Ghaziabad, Uttar Pradesh 201002"],
     action: null,
   },
   {
     icon: Clock,
     title: "Opening Hours",
-    details: ["Mon-Fri: 8:00 AM - 8:00 PM", "Sat-Sun: 9:00 AM - 5:00 PM"],
+    details: ["Mon-Sun: 8:00 AM - 8:00 PM"],
     action: null,
   },
 ]

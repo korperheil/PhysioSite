@@ -202,19 +202,13 @@ export function BookingForm() {
               </Button>
             </PopoverTrigger>
             <PopoverContent className="w-auto p-0">
-            <Calendar
-              mode="single"
-              selected={date}
-              onSelect={setDate}
-              disabled={(date) => {
-                const today = new Date()
-                today.setHours(0, 0, 0, 0)
-                const compareDate = new Date(date)
-                compareDate.setHours(0, 0, 0, 0)
-                return compareDate < today
-              }}
-              initialFocus
-            />
+              <Calendar
+                mode="single"
+                selected={date}
+                onSelect={setDate}
+                disabled={(date) => date < new Date()}
+                initialFocus
+              />
             </PopoverContent>
           </Popover>
         </div>

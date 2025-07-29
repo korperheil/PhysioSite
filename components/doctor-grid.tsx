@@ -9,23 +9,31 @@ import { Award, Calendar } from "lucide-react"
 const doctors = [
   {
     id: 1,
-    name: "Dr. Sarah Smith",
-    degrees: "DPT, MS, OCS",
-    specialization: "Orthopedic & Sports Rehabilitation",
-    experience: 12,
+    name: "Dr. Shalini Jainth (PT)",
+    qualifications: "BPT, MPT(Neuro Physiotherapy), Physiotherapy, MIAP, DCPT",
+    certifications: "AFPA Certified Antenatal & Postnatal Coach ",
+    experience: "9+ years in neurorehabilitation",
     image: "/placeholder.svg?height=300&width=300",
-    bio: "Specializes in sports injuries and orthopedic rehabilitation with extensive experience in treating professional athletes.",
+    expertise: "Stroke recovery, spinal cord injuries, movement disorders, Women Healthcare - Ante-natal & Post Natal care, Post Natal weight management Yoga",
+    previous_affiliations: [
+      "MAX Hospital, Pitampura",
+      "BLK Hospital, Karol Bagh",
+    ],
   },
   {
     id: 2,
-    name: "Dr. Prasan ",
-    degrees: "DPT, PhD, NCS",
-    specialization: "Neurological Rehabilitation",
-    experience: 15,
+    name: "Dr. Akash Jainth (PT) ",
+    qualifications: "BPT (IPH), MPT (Musculoskeletal), MIAP, DCPT",
+    certifications: "Neurological Rehabilitation",
+    experience: "9+ years in orthopaedic and sports rehabilitation",
     image: "/placeholder.svg?height=300&width=300",
-    bio: "Expert in neurological conditions including stroke recovery, spinal cord injuries, and movement disorders.",
+    expertise: " Chiropractic care, Spine-related conditions, Sports injuries & orthopaedic rehabilitation, Postural correction & management, Pilates instruction, Ergonomics, Treatment of professional athletes, Manual Therapy ",
+    previous_affiliations: [
+      "Tulasi Healthcare, Gurugram",
+      "BLK Hospital, Karol Bagh",
+      "Safdarjung Hospital, Delhi",
+    ],
   },
-
 ]
 
 export function DoctorGrid() {
@@ -46,16 +54,24 @@ export function DoctorGrid() {
 
           <div className="p-6">
             <h3 className="text-xl font-bold text-gray-900 mb-1">{doctor.name}</h3>
-            <p className="text-blue-600 font-medium mb-2">{doctor.degrees}</p>
-            <p className="text-gray-700 font-medium mb-3">{doctor.specialization}</p>
+            <p className="text-blue-600 font-medium mb-2">{doctor.qualifications}</p>
+            <p className="text-gray-700 font-medium mb-3">{doctor.certifications}</p>
 
             <div className="flex items-center mb-4">
               <Award className="w-4 h-4 text-yellow-500 mr-2" />
-              <span className="text-sm text-gray-600">{doctor.experience} years experience</span>
+              <span className="text-sm text-gray-600">{doctor.experience} </span>
             </div>
 
-            <p className="text-gray-600 text-sm mb-6 leading-relaxed">{doctor.bio}</p>
-
+            <p className="text-gray-600 text-sm mb-6 leading-relaxed">{doctor.expertise}</p>
+    <p className="text-gray-700 font-medium mb-3"><div>Previous Affiliations: </div> 
+      {Array.isArray(doctor.previous_affiliations)
+        ? (doctor.previous_affiliations ?? []).map((aff, i, arr) => (
+            <span key={i}>
+              {aff}
+              {i !== (arr.length - 1) && <br />}
+            </span>
+          ))
+        : doctor.previous_affiliations}</p>
             <Button asChild className="w-full">
               <Link href={`/booking?doctor=${encodeURIComponent(doctor.name)}`}>
                 <Calendar className="w-4 h-4 mr-2" />

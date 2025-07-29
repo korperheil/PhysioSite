@@ -14,7 +14,7 @@ export function Footer() {
               <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold">P</span>
               </div>
-              <span className="text-xl font-bold">PhysioHeal</span>
+              <span className="text-xl font-bold">Körper Heil</span>
             </div>
             <p className="text-gray-400 leading-relaxed">
               Leading physiotherapy clinic dedicated to helping you achieve optimal health and mobility through expert
@@ -86,18 +86,20 @@ export function Footer() {
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Phone className="w-4 h-4 text-blue-400" />
-                <span className="text-gray-400">+1 (234) 567-890</span>
+                <span className="text-gray-400">+91 9910772756</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-4 h-4 text-blue-400" />
-                <span className="text-gray-400">info@physioheal.com</span>
+                <span className="text-gray-400">korper.heil@gmail.com</span>
               </div>
               <div className="flex items-start space-x-3">
                 <MapPin className="w-4 h-4 text-blue-400 mt-1" />
                 <span className="text-gray-400">
-                  123 Health Street
+                  C-31,Second Floor, 
                   <br />
-             L
+                  Sector 15, RDC, Raj Nagar,
+                  <br />
+                   Ghaziabad, Uttar Pradesh 201002
                 </span>
               </div>
             </div>
@@ -106,7 +108,7 @@ export function Footer() {
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
           <p className="text-gray-400">
-            © 2025 PhysioHeal Clinic. All rights reserved. |
+            © 2024 Körper Heil. All rights reserved. |
             <Link href="/privacy" className="hover:text-white transition-colors ml-1">
               Privacy Policy
             </Link>{" "}
@@ -115,11 +117,7 @@ export function Footer() {
               Terms of Service
             </Link>
           </p>
-          <Link href="https://www.linkedin.com/in/prasan-bora/" className="hover:text-white transition-colors text-gray-400 text-center">
-             Made By Prasan 
-            </Link>
         </div>
-
       </div>
     </footer>
   )
