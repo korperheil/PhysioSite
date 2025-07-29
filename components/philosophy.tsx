@@ -40,7 +40,7 @@ export function Philosophy() {
         >
           <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Philosophy & Values</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            At PhysioHeal, we believe in holistic healing that addresses not just symptoms, but the root cause of your
+            At Körper Heil, we believe in holistic healing that addresses not just symptoms, but the root cause of your
             condition. Our patient-centered approach ensures you receive the best possible care.
           </p>
         </motion.div>
