@@ -24,7 +24,7 @@ const quickLinks = [
     icon: Phone,
     title: "Emergency Contact",
     description: "Call us for urgent care",
-    href: "tel:+1234567890",
+    href: "tel:+91 9910772756",
     color: "bg-red-600 hover:bg-red-700",
   },
   {
