@@ -9,36 +9,36 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: {
-    default: "PhysioHeal Clinic - Expert Physiotherapy & Rehabilitation Services",
-    template: "%s | PhysioHeal Clinic",
+    default: "Körper Heil - Expert Physiotherapy & Rehabilitation Services",
+    template: "%s | Körper Heil",
   },
   description:
     "Leading physiotherapy clinic offering expert rehabilitation services, sports injury treatment, and wellness programs. Book your appointment today.",
   keywords: ["physiotherapy", "rehabilitation", "sports injury", "physical therapy", "wellness", "pain management"],
-  authors: [{ name: "PhysioHeal Clinic" }],
-  creator: "PhysioHeal Clinic",
-  publisher: "PhysioHeal Clinic",
+  authors: [{ name: "Körper Heil" }],
+  creator: "Körper Heil",
+  publisher: "Körper Heil",
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://physioheal-clinic.com"),
+  metadataBase: new URL("https://Körper-Heil.com"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "PhysioHeal Clinic - Expert Physiotherapy Services",
+    title: "Körper Heil - Expert Physiotherapy Services",
     description:
       "Leading physiotherapy clinic offering expert rehabilitation services, sports injury treatment, and wellness programs.",
-    url: "https://physioheal-clinic.com",
+    url: "https://Körper-Heil.com",
     siteName: "PhysioHeal Clinic",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "PhysioHeal Clinic",
+        alt: "Körper Heil",
       },
     ],
     locale: "en_US",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "PhysioHeal Clinic - Expert Physiotherapy Services",
+    title: "Körper Heil - Expert Physiotherapy Services",
     description:
       "Leading physiotherapy clinic offering expert rehabilitation services, sports injury treatment, and wellness programs.",
     images: ["/og-image.jpg"],
