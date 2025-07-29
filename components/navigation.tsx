@@ -87,11 +87,11 @@ export function Navigation() {
               ))}
               <div className="pt-4 border-t">
                 <a
-                  href="tel:+1234567890"
+                  href="tel:+91 9910772756"
                   className="flex items-center space-x-2 text-gray-700 hover:text-blue-600 mb-4"
                 >
                   <Phone className="w-4 h-4" />
-                  <span>+1 (234) 567-890</span>
+                  <span>+91 9910772756</span>
                 </a>
                 <Button asChild className="w-full">
                   <Link href="/booking" onClick={() => setIsOpen(false)}>
