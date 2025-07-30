@@ -1,6 +1,6 @@
 "use client"
 
-import type React from "react"
+import React from "react"
 
 import { useState } from "react"
 import { motion } from "framer-motion"
@@ -9,10 +9,11 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Calendar } from "@/components/ui/calendar"
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { CalendarIcon, Clock, CreditCard } from "lucide-react"
-import { format } from "date-fns"
+import { DatePicker } from 'antd'
+import dayjs from 'dayjs'
+import type { Dayjs } from 'dayjs'
+import 'antd/dist/reset.css'
 
 const doctors = ["Dr Shalini Jainth (PT)", "Dr Akash Jainth (PT)"]
 
@@ -43,10 +44,9 @@ const timeSlots = [
 ]
 
 export function BookingForm() {
-  const [date, setDate] = useState<Date>()
+  const [date, setDate] = useState<Date | undefined>()
   const [formData, setFormData] = useState({
-    doctor: "",
-    service: "",
+    doctor: "", 
     time: "",
     name: "",
     email: "",
@@ -62,7 +62,8 @@ export function BookingForm() {
 
     try {
       // Extract price from service string
-      const servicePrice = formData.service.match(/\$(\d+)/)?.[1] || "100"
+      // const servicePrice = formData.service.match(/\$(\d+)/)?.[1] || "100"
+      const servicePrice = "100" // Default price since service is removed
 
       const response = await fetch("/api/booking", {
         method: "POST",
@@ -71,6 +72,7 @@ export function BookingForm() {
         },
         body: JSON.stringify({
           ...formData,
+          service: "General Consultation", // Default service since field is removed
           date: date?.toISOString(),
           amount: Number.parseInt(servicePrice),
         }),
@@ -91,7 +93,7 @@ export function BookingForm() {
             setShowSuccess(true)
             setFormData({
               doctor: "",
-              service: "",
+              // service: "",
               time: "",
               name: "",
               email: "",
@@ -113,7 +115,7 @@ export function BookingForm() {
           setShowSuccess(true)
           setFormData({
             doctor: "",
-            service: "",
+            // service: "",
             time: "",
             name: "",
             email: "",
@@ -142,7 +144,7 @@ export function BookingForm() {
         </div>
         <h3 className="text-2xl font-bold text-gray-900 mb-2">Booking Confirmed!</h3>
         <p className="text-gray-600 mb-6">
-          Your appointment has been successfully booked. You will receive a confirmation email shortly.
+          Your appointment has been successfully booked! A confirmation email has been sent to you, and our team has been notified of your booking.
         </p>
         <Button onClick={() => setShowSuccess(false)}>Book Another Appointment</Button>
       </motion.div>
@@ -160,7 +162,7 @@ export function BookingForm() {
       <div className="grid md:grid-cols-2 gap-6">
         <div className="space-y-2">
           <Label htmlFor="doctor">Select Doctor</Label>
-          <Select value={formData.doctor} onValueChange={(value) => setFormData({ ...formData, doctor: value })}>
+          <Select value={formData.doctor} onValueChange={(value: string) => setFormData({ ...formData, doctor: value })}>
             <SelectTrigger>
               <SelectValue placeholder="Choose a doctor" />
             </SelectTrigger>
@@ -176,7 +178,7 @@ export function BookingForm() {
 
         {/* <div className="space-y-2">
           <Label htmlFor="service">Select Service</Label>
-          <Select value={formData.service} onValueChange={(value) => setFormData({ ...formData, service: value })}>
+          <Select value={formData.service} onValueChange={(value: string) => setFormData({ ...formData, service: value })}>
             <SelectTrigger>
               <SelectValue placeholder="Choose a service" />
             </SelectTrigger>
@@ -193,29 +195,27 @@ export function BookingForm() {
 
       <div className="grid md:grid-cols-2 gap-6">
         <div className="space-y-2">
-          <Label>Select Date</Label>
-          <Popover>
-            <PopoverTrigger asChild>
-              <Button variant="outline" className="w-full justify-start text-left font-normal">
-                <CalendarIcon className="mr-2 h-4 w-4" />
-                {date ? format(date, "PPP") : "Pick a date"}
-              </Button>
-            </PopoverTrigger>
-            <PopoverContent className="w-auto p-0">
-              <Calendar
-                mode="single"
-                selected={date}
-                onSelect={setDate}
-                disabled={(date) => date < new Date()}
-                initialFocus
-              />
-            </PopoverContent>
-          </Popover>
+          <div className="flex items-center space-x-2"> 
+            <Label className="text-sm font-semibold text-gray-700">Select Appointment Date</Label>
+          </div> 
+          <DatePicker
+            className="w-full h-11"
+            size="large"
+            value={date ? dayjs(date) : null}
+            onChange={(val: Dayjs | null) => setDate(val?.toDate())}
+            disabledDate={(current: Dayjs) => current < dayjs().startOf('day')}
+            placeholder="Pick an appointment date"
+            format="dddd, MMMM D, YYYY"
+            suffixIcon={<CalendarIcon className="w-4 h-4 text-blue-600" />}
+            style={{
+              borderColor: date ? '#3B82F6' : '#D1D5DB',
+              backgroundColor: date ? '#EFF6FF' : 'white'
+            }}
+          />
         </div>
-
         <div className="space-y-2">
           <Label htmlFor="time">Select Time</Label>
-          <Select value={formData.time} onValueChange={(value) => setFormData({ ...formData, time: value })}>
+          <Select value={formData.time} onValueChange={(value: string) => setFormData({ ...formData, time: value })}>
             <SelectTrigger>
               <SelectValue placeholder="Choose time slot" />
             </SelectTrigger>
@@ -240,7 +240,7 @@ export function BookingForm() {
             id="name"
             type="text"
             value={formData.name}
-            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData({ ...formData, name: e.target.value })}
             required
           />
         </div>
@@ -251,7 +251,7 @@ export function BookingForm() {
             id="email"
             type="email"
             value={formData.email}
-            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData({ ...formData, email: e.target.value })}
             required
           />
         </div>
@@ -263,7 +263,7 @@ export function BookingForm() {
           id="phone"
           type="tel"
           value={formData.phone}
-          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData({ ...formData, phone: e.target.value })}
           required
         />
       </div>
@@ -273,7 +273,7 @@ export function BookingForm() {
         <Textarea
           id="notes"
           value={formData.notes}
-          onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
+          onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setFormData({ ...formData, notes: e.target.value })}
           placeholder="Any specific concerns or requirements..."
           rows={3}
         />
@@ -286,7 +286,6 @@ export function BookingForm() {
         disabled={
           isSubmitting ||
           !formData.doctor ||
-          !formData.service ||
           !date ||
           !formData.time ||
           !formData.name ||
@@ -299,7 +298,7 @@ export function BookingForm() {
         ) : (
           <>
             <CreditCard className="w-4 h-4 mr-2" />
-            Book & Pay Now
+            Book Appointment
           </>
         )}
       </Button>
