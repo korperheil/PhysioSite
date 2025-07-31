@@ -299,7 +299,7 @@ export function BookingForm() {
         ) : (
           <>
             <CreditCard className="w-4 h-4 mr-2" />
-            Book & Pay Now
+            Book Now
           </>
         )}
       </Button>
