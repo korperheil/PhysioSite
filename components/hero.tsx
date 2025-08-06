@@ -9,20 +9,40 @@ import { ArrowRight, Award, Users, Clock } from "lucide-react"
 
 const heroImages = [
   {
-    src: "https://media.istockphoto.com/id/2047970581/photo/modern-rehabilitation-physiotherapy-at-work-with-client-holding-dumbbell.jpg?b=1&s=612x612&w=0&k=20&c=lMpUmX5RRSZXYGuaLNh5Ri2KpaQOe4sPU4OnYBlurFg=",
-    alt: "Physiotherapist helping patient with rehabilitation exercises",
+    src: "/mainPageimages/IMG_9768.JPG",
+    alt: "Professional physiotherapy treatment session",
   },
   {
-    src: "/placeholder.svg?height=600&width=500",
-    alt: "Modern physiotherapy equipment and treatment room",
+    src: "/mainPageimages/IMG_9769.JPG",
+    alt: "Modern physiotherapy equipment and facilities",
   },
   {
-    src: "/placeholder.svg?height=600&width=500",
-    alt: "Professional physiotherapist consultation",
+    src: "/mainPageimages/IMG_9770.JPG",
+    alt: "Physiotherapist working with patient",
   },
   {
-    src: "/placeholder.svg?height=600&width=500",
-    alt: "Patient recovery and rehabilitation session",
+    src: "/mainPageimages/IMG_9771.JPG",
+    alt: "Rehabilitation and recovery therapy",
+  },
+  {
+    src: "/mainPageimages/IMG_9772.JPG",
+    alt: "Professional physiotherapy consultation",
+  },
+  {
+    src: "/mainPageimages/IMG_9773.JPG",
+    alt: "Advanced physiotherapy techniques",
+  },
+  {
+    src: "/mainPageimages/IMG_9776.JPG",
+    alt: "Patient care and treatment",
+  },
+  {
+    src: "/mainPageimages/IMG_9778.JPG",
+    alt: "Modern physiotherapy clinic environment",
+  },
+  {
+    src: "/mainPageimages/IMG_9779.JPG",
+    alt: "Expert physiotherapy services",
   },
 ]
 

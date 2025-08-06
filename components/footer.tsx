@@ -21,18 +21,18 @@ export function Footer() {
               care and personalized treatment.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
+              {/* <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
                 <Facebook className="w-5 h-5" />
               </a>
               <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
                 <Twitter className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
+              </a> */}
+              <a href="https://www.instagram.com/korper_heil" target="_blank" className="text-gray-400 hover:text-blue-400 transition-colors">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
+              {/* <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
                 <Linkedin className="w-5 h-5" />
-              </a>
+              </a> */}
             </div>
           </div>
 
@@ -108,7 +108,7 @@ export function Footer() {
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
           <p className="text-gray-400">
-            © 2024 Körper Heil. All rights reserved. |
+            © 2025 Körper Heil. All rights reserved. |
             <Link href="/privacy" className="hover:text-white transition-colors ml-1">
               Privacy Policy
             </Link>{" "}
