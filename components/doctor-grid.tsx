@@ -9,7 +9,7 @@ import { Award, Calendar } from "lucide-react"
 const doctors = [
   {
     id: 1,
-    name: "Dr. Shalini Jainth (PT)",
+    name: "Dr. Shalini (PT)",
     qualifications: "BPT, MPT(Neuro Physiotherapy), Physiotherapy, MIAP, DCPT",
     certifications: "AFPA Certified Antenatal & Postnatal Coach ",
     experience: "9+ years in neurorehabilitation",

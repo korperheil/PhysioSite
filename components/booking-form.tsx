@@ -298,11 +298,7 @@ export function BookingForm() {
         ) : (
           <>
             <CreditCard className="w-4 h-4 mr-2" />
-<<<<<<< HEAD
-            Book Appointment
-=======
             Book Now
->>>>>>> a02158b808d0ab4ab7ab0ba1a9aa3c602251c120
           </>
         )}
       </Button>
