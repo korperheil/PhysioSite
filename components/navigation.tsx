@@ -47,7 +47,7 @@ export function Navigation() {
               </Link>
             ))}
             <div className="flex items-center space-x-4">
-              <a href="tel:+1234567890" className="flex items-center space-x-2 text-gray-700 hover:text-blue-600">
+              <a href="tel:+91 9910772756" className="flex items-center space-x-2 text-gray-700 hover:text-blue-600">
                 <Phone className="w-4 h-4" />
                 <span className="hidden lg:inline">+91 9910772756</span>
               </a>

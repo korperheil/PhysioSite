@@ -7,67 +7,67 @@ export function StructuredData({ type }: StructuredDataProps) {
     switch (type) {
       case "organization":
         return {
-          "@context": "https://schema.org",
-          "@type": "MedicalOrganization",
-          name: "PhysioHeal Clinic",
+          "@context": "#",
+          "@type": "PhysioTherapyClinic",
+          name: "Korper Heil",
           description:
             "Leading physiotherapy clinic offering expert rehabilitation services, sports injury treatment, and wellness programs.",
-          url: "https://physioheal-clinic.com",
-          logo: "https://physioheal-clinic.com/logo.png",
-          image: "https://physioheal-clinic.com/og-image.jpg",
-          telephone: "+1-234-567-890",
-          email: "info@physioheal.com",
+          url: "https:/korperheil.com",
+          logo: "https://korperheil.com/logo.png",  //is to be made
+          image: "https://korperheil.com/clinic-image.jpg", //is to be made
+          telephone: "+91 9910772756",
+          email: "korper.heil@gmail.com",
           address: {
             "@type": "PostalAddress",
-            streetAddress: "123 Health Street",
-            addressLocality: "Medical District",
-            addressRegion: "State",
-            postalCode: "12345",
-            addressCountry: "US",
+            streetAddress: "C-31, 2nd Floor, Sector 15, RDC",
+            addressLocality: "Raj Nagar",
+            addressRegion: "Ghaziabad",
+            postalCode: "201002",
+            addressCountry: "Uttar Pradesh",
           },
-          openingHours: ["Mo-Fr 08:00-20:00", "Sa-Su 09:00-17:00"],
+          openingHours: ["Mo-Su 09:00-21:30"],
           medicalSpecialty: ["Physical Therapy", "Sports Medicine", "Rehabilitation Medicine", "Pain Management"],
         }
 
       case "doctors":
         return {
-          "@context": "https://schema.org",
+          "@context": "#",
           "@type": "ItemList",
           itemListElement: [
             {
               "@type": "Person",
-              name: "Dr. Sarah Smith",
-              jobTitle: "Physical Therapist",
+              name: "Dr. Shalini",
+              jobTitle: "BPT, MPT(Neuro Physiotherapy), Physiotherapy, MIAP, DCPT",
               worksFor: {
-                "@type": "MedicalOrganization",
-                name: "PhysioHeal Clinic",
+                "@type": "PhysioTherapyClinic",
+                name: "Korper Heil",
               },
-              hasCredential: "DPT, MS, OCS",
-              knowsAbout: "Orthopedic & Sports Rehabilitation",
-              yearsOfExperience: 12,
+              hasCredential: "BPT, MPT(Neuro Physiotherapy), Physiotherapy, MIAP, DCPT",
+              knowsAbout: "Stroke recovery, spinal cord injuries, movement disorders, Women Healthcare - Ante-natal & Post Natal care, Post Natal weight management Yoga",
+              yearsOfExperience: "9+",
             },
             {
               "@type": "Person",
-              name: "Dr. Michael Johnson",
-              jobTitle: "Physical Therapist",
+              name: "Dr. Akash Jainth (PT)",
+              jobTitle: "BPT (IPH), MPT (Musculoskeletal), MIAP, DCPT",
               worksFor: {
-                "@type": "MedicalOrganization",
-                name: "PhysioHeal Clinic",
+                "@type": "PhysioTherapyClinic",
+                name: "Korper Heil",
               },
-              hasCredential: "DPT, PhD, NCS",
-              knowsAbout: "Neurological Rehabilitation",
-              yearsOfExperience: 15,
+              hasCredential: "BPT (IPH), MPT (Musculoskeletal), MIAP, DCPT",
+              knowsAbout: "Chiropractic care, Spine-related conditions, Sports injuries & orthopaedic rehabilitation, Postural correction & management, Pilates instruction, Ergonomics, Treatment of professional athletes, Manual Therapy",
+              yearsOfExperience: "9+",
             },
           ],
         }
 
       case "services":
         return {
-          "@context": "https://schema.org",
+          "@context": "#",  //https://schema.org
           "@type": "ItemList",
           itemListElement: [
             {
-              "@type": "MedicalProcedure",
+              "@type": "PhysioTherapyClinic",
               name: "Sports Injury Rehabilitation",
               description:
                 "Comprehensive treatment for sports-related injuries including sprains, strains, and overuse injuries.",
@@ -75,7 +75,7 @@ export function StructuredData({ type }: StructuredDataProps) {
               bodyLocation: "Musculoskeletal System",
             },
             {
-              "@type": "MedicalProcedure",
+              "@type": "PhysioTherapyClinic",
               name: "Orthopedic Physical Therapy",
               description:
                 "Post-surgical rehabilitation and treatment for musculoskeletal conditions and joint problems.",
@@ -83,7 +83,7 @@ export function StructuredData({ type }: StructuredDataProps) {
               bodyLocation: "Joints and Bones",
             },
             {
-              "@type": "MedicalProcedure",
+              "@type": "PhysioTherapyClinic",
               name: "Neurological Rehabilitation",
               description:
                 "Specialized care for stroke recovery, spinal cord injuries, and neurological movement disorders.",
