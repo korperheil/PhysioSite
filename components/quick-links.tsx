@@ -22,10 +22,10 @@ const quickLinks = [
   },
   {
     icon: Phone,
-    title: "Emergency Contact",
-    description: "Call us for urgent care",
+    title: "Professional Home Care",
+    description: "Call us for more information",
     href: "tel:+91 9910772756",
-    color: "bg-red-600 hover:bg-red-700",
+    color: "bg-red-500 hover:bg-red-700",
   },
   {
     icon: MapPin,
