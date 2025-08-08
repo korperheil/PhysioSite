@@ -9,13 +9,14 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { CalendarIcon, Clock, CreditCard } from "lucide-react"
+import { CalendarIcon, Clock, CreditCard, MessageCircle } from "lucide-react"
 import { DatePicker } from 'antd'
 import dayjs from 'dayjs'
 import type { Dayjs } from 'dayjs'
 import 'antd/dist/reset.css'
+import { whatsappService } from "@/lib/whatsapp-service"
 
-const doctors = ["Dr Shalini Jainth (PT)", "Dr Akash Jainth (PT)"]
+const doctors = ["Dr Shalini (PT)", "Dr Akash Jainth (PT)"]
 
 // const services = [
 //   "Sports Injury Rehabilitation - $120",
@@ -81,6 +82,37 @@ export function BookingForm() {
       if (response.ok) {
         const data = await response.json()
 
+        // Send WhatsApp confirmation
+        try {
+          const whatsappResponse = await fetch('/api/whatsapp', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              action: 'sendConfirmation',
+              bookingData: {
+                name: formData.name,
+                email: formData.email,
+                phone: formData.phone,
+                doctor: formData.doctor,
+                date: date?.toISOString() || '',
+                time: formData.time,
+                notes: formData.notes
+              }
+            })
+          })
+          
+          if (whatsappResponse.ok) {
+            console.log('WhatsApp confirmation sent successfully')
+          } else {
+            console.error('WhatsApp confirmation failed')
+          }
+        } catch (error) {
+          console.error('WhatsApp message failed:', error)
+          // Continue with booking even if WhatsApp fails
+        }
+
         // Initialize Razorpay payment (mock implementation)
         const options = {
           key: data.key,
@@ -144,7 +176,7 @@ export function BookingForm() {
         </div>
         <h3 className="text-2xl font-bold text-gray-900 mb-2">Booking Confirmed!</h3>
         <p className="text-gray-600 mb-6">
-          Your appointment has been successfully booked! A confirmation email has been sent to you, and our team has been notified of your booking.
+          Your appointment has been successfully booked! A confirmation email and WhatsApp message have been sent to you, and our team has been notified of your booking.
         </p>
         <Button onClick={() => setShowSuccess(false)}>Book Another Appointment</Button>
       </motion.div>
@@ -298,6 +330,7 @@ export function BookingForm() {
         ) : (
           <>
             <CreditCard className="w-4 h-4 mr-2" />
+            <MessageCircle className="w-4 h-4 mr-2" />
             Book Now
           </>
         )}

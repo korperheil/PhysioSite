@@ -1,8 +1,10 @@
 "use client"
 
+import { useState } from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { HomeCareModal } from "@/components/home-care-modal"
 import { Calendar, Users, Phone, MapPin } from "lucide-react"
 
 const quickLinks = [
@@ -37,6 +39,17 @@ const quickLinks = [
 ]
 
 export function QuickLinks() {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  const handleCardClick = (link: typeof quickLinks[0], e: React.MouseEvent) => {
+    if (link.title === "Professional Home Care") {
+      e.preventDefault()
+      setIsModalOpen(true)
+    }
+  }
+
+
+
   return (
     <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
@@ -60,22 +73,41 @@ export function QuickLinks() {
               transition={{ duration: 0.8, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <Button
-                asChild
-                className={`w-full h-auto p-6 ${link.color} text-white flex flex-col items-center space-y-4 hover:scale-105 transition-transform duration-300`}
-              >
-                <Link href={link.href}>
+              {link.title === "Professional Home Care" ? (
+                <Button
+                  className={`w-full h-auto p-6 ${link.color} text-white flex flex-col items-center space-y-4 hover:scale-105 transition-transform duration-300`}
+                  onClick={(e) => handleCardClick(link, e)}
+                >
                   <link.icon className="w-8 h-8" />
                   <div className="text-center">
                     <div className="font-semibold text-lg mb-1">{link.title}</div>
                     <div className="text-sm opacity-90">{link.description}</div>
                   </div>
-                </Link>
-              </Button>
+                </Button>
+              ) : (
+                <Button
+                  asChild
+                  className={`w-full h-auto p-6 ${link.color} text-white flex flex-col items-center space-y-4 hover:scale-105 transition-transform duration-300`}
+                >
+                  <Link href={link.href}>
+                    <link.icon className="w-8 h-8" />
+                    <div className="text-center">
+                      <div className="font-semibold text-lg mb-1">{link.title}</div>
+                      <div className="text-sm opacity-90">{link.description}</div>
+                    </div>
+                  </Link>
+                </Button>
+              )}
             </motion.div>
           ))}
         </div>
       </div>
+
+      {/* Modal for Professional Home Care */}
+      <HomeCareModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
     </section>
   )
 }

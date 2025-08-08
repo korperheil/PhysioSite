@@ -15,6 +15,7 @@ export function Navigation() {
     { name: "Doctors", href: "/doctors" },
     { name: "Services", href: "/services" },
     { name: "Contact", href: "/contact" },
+    { name: "Blog", href: "/blog" },
   ]
 
   return (
