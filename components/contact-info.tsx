@@ -19,7 +19,7 @@ const contactDetails = [
   {
     icon: MapPin,
     title: "Address",
-    details: ["C-31, 2nd Floor, Sector 15, RDC, Raj Nagar, Ghaziabad, Uttar Pradesh 201002"],
+    details: ["C-31, 2nd Floor, RDC, Raj Nagar, Ghaziabad, Uttar Pradesh 201002"],
     action: null,
   },
   {

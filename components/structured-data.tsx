@@ -19,7 +19,7 @@ export function StructuredData({ type }: StructuredDataProps) {
           email: "korper.heil@gmail.com",
           address: {
             "@type": "PostalAddress",
-            streetAddress: "C-31, 2nd Floor, Sector 15, RDC",
+            streetAddress: "C-31, 2nd Floor,RDC",
             addressLocality: "Raj Nagar",
             addressRegion: "Ghaziabad",
             postalCode: "201002",

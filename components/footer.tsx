@@ -97,7 +97,7 @@ export function Footer() {
                 <span className="text-gray-400">
                   C-31, 2nd Floor, 
                   <br />
-                  Sector 15, RDC, Raj Nagar,
+                  RDC, Raj Nagar,
                   <br />
                    Ghaziabad, Uttar Pradesh 201002
                 </span>
