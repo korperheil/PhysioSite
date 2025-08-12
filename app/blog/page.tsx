@@ -1,5 +1,5 @@
 "use client"
-
+import { useState } from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import Image from "next/image"
@@ -80,6 +80,14 @@ const categories = [
 ]
 
 export default function BlogPage() {
+  const [selectedCategory, setSelectedCategory] = useState("All")
+
+  // Filter posts based on selected category
+  const filteredPosts =
+    selectedCategory === "All"
+      ? blogPosts
+      : blogPosts.filter((post) => post.category === selectedCategory)
+  
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
@@ -122,10 +130,11 @@ export default function BlogPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${
-                  category === "All"
+                  selectedCategory === category
                     ? "bg-blue-600 text-white"
                     : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                 }`}
+                onClick={() => setSelectedCategory(category)}
               >
                 {category}
               </motion.button>
@@ -138,7 +147,7 @@ export default function BlogPage() {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((post, index) => (
+            {filteredPosts.map((post, index) => (
               <motion.article
                 key={post.id}
                 initial={{ opacity: 0, y: 50 }}
@@ -207,7 +216,7 @@ export default function BlogPage() {
       </section>
 
       {/* Newsletter Signup */}
-      <section className="py-16 bg-blue-600">
+      {/* <section className="py-16 bg-blue-600">
         <div className="container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -232,7 +241,8 @@ export default function BlogPage() {
             </div>
           </motion.div>
         </div>
-      </section>
+      </section> */}
     </div>
   )
-} 
+}
+
