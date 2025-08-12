@@ -67,6 +67,16 @@ const blogPosts = [
     readTime: "4 min read",
     author: "Dr. James Wilson",
   },
+  {
+    id: 7,
+    title: "Preventing1 Workplace1 Injuries1 with1 Proper1 Ergonomics1",
+    excerpt: "Essential tips and exercises to prevent workplace injuries and maintain good posture during long hours at the desk.",
+    image: "/placeholder.svg?height=300&width=400",
+    category: "Workplace Health",
+    date: "March 3, 2024",
+    readTime: "4 min read",
+    author: "Dr. James Wilson",
+  },
 ]
 
 const categories = [
@@ -81,13 +91,23 @@ const categories = [
 
 export default function BlogPage() {
   const [selectedCategory, setSelectedCategory] = useState("All")
+  const [searchTerm, setSearchTerm] = useState("")
+  const [visibleCount, setVisibleCount] = useState(6)
 
-  // Filter posts based on selected category
-  const filteredPosts =
-    selectedCategory === "All"
-      ? blogPosts
-      : blogPosts.filter((post) => post.category === selectedCategory)
-  
+  // Filter posts based on selected category and search term
+  const filteredPosts = blogPosts.filter((post) => {
+    const matchesCategory =
+      selectedCategory === "All" || post.category === selectedCategory
+    const matchesSearch =
+      post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      post.author.toLowerCase().includes(searchTerm.toLowerCase())
+    return matchesCategory && matchesSearch
+  })
+
+  // Only show up to visibleCount blogs
+  const visiblePosts = filteredPosts.slice(0, visibleCount)
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
@@ -112,6 +132,8 @@ export default function BlogPage() {
               <input
                 type="text"
                 placeholder="Search articles..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
             </div>
@@ -147,7 +169,7 @@ export default function BlogPage() {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredPosts.map((post, index) => (
+            {visiblePosts.map((post, index) => (
               <motion.article
                 key={post.id}
                 initial={{ opacity: 0, y: 50 }}
@@ -202,46 +224,24 @@ export default function BlogPage() {
           </div>
           
           {/* Load More Button */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-center mt-12"
-          >
-            <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
-              Load More Articles
-            </Button>
-          </motion.div>
+          {visibleCount < filteredPosts.length && (
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="text-center mt-12"
+            >
+              <Button
+                size="lg"
+                className="bg-blue-600 hover:bg-blue-700"
+                onClick={() => setVisibleCount((prev) => prev + 6)}
+              >
+                Load More Articles
+              </Button>
+            </motion.div>
+          )}
         </div>
       </section>
-
-      {/* Newsletter Signup */}
-      {/* <section className="py-16 bg-blue-600">
-        <div className="container mx-auto px-4 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-3xl font-bold text-white mb-4">
-              Stay Updated with Our Latest Articles
-            </h2>
-            <p className="text-blue-100 mb-8 max-w-2xl mx-auto">
-              Subscribe to our newsletter and get the latest health tips, physiotherapy insights, and recovery advice delivered to your inbox.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-3 rounded-lg border-0 focus:outline-none focus:ring-2 focus:ring-white"
-              />
-              <Button className="bg-white text-blue-600 hover:bg-gray-100">
-                Subscribe
-              </Button>
-            </div>
-          </motion.div>
-        </div>
-      </section> */}
     </div>
   )
 }
