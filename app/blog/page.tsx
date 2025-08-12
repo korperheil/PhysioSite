@@ -1,10 +1,9 @@
 "use client"
 import { useState } from "react"
 import { motion } from "framer-motion"
-import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Calendar, Clock, ArrowRight, Search } from "lucide-react"
+import { Calendar, Clock, Search } from "lucide-react"
 
 const blogPosts = [
   {
@@ -102,7 +101,6 @@ export default function BlogPage() {
   const [visibleCount, setVisibleCount] = useState(6)
   const [selectedBlog, setSelectedBlog] = useState(null)
 
-  // Filter posts based on selected category and search term
   const filteredPosts = blogPosts.filter((post) => {
     const matchesCategory =
       selectedCategory === "All" || post.category === selectedCategory
@@ -113,7 +111,6 @@ export default function BlogPage() {
     return matchesCategory && matchesSearch
   })
 
-  // Only show up to visibleCount blogs
   const visiblePosts = filteredPosts.slice(0, visibleCount)
 
   return (
@@ -216,7 +213,7 @@ export default function BlogPage() {
                 onClick={() => setSelectedBlog(null)}
                 className="mt-4"
               >
-                Back
+                Close
               </Button>
             </motion.div>
           )}
@@ -230,7 +227,8 @@ export default function BlogPage() {
                   initial={{ opacity: 0, y: 50 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: index * 0.1 }}
-                  className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+                  className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+                  onClick={() => setSelectedBlog(post)}
                 >
                   <div className="relative h-48 overflow-hidden">
                     <Image
@@ -262,17 +260,7 @@ export default function BlogPage() {
                     <p className="text-gray-600 mb-4 line-clamp-3">
                       {post.excerpt}
                     </p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm text-gray-500">By {post.author}</span>
-                      <Button
-                        variant="ghost"
-                        className="text-blue-600 hover:text-blue-700"
-                        onClick={() => setSelectedBlog(post)}
-                      >
-                        Read More
-                        <ArrowRight className="w-4 h-4 ml-2" />
-                      </Button>
-                    </div>
+                    <span className="text-sm text-gray-500">By {post.author}</span>
                   </div>
                 </motion.article>
               ))}
@@ -295,8 +283,8 @@ export default function BlogPage() {
                 Load More Articles
               </Button>
             </motion.div>
-            )}
-        </div>
+          )}
+          </div>
       </section>
     </div>
   )
