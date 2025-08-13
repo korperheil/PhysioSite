@@ -47,7 +47,6 @@ const sendBookingEmail = async (bookingData: any) => {
           day: 'numeric' 
         })}</p>
         <p><strong>Time:</strong> ${bookingData.time}</p>
-        <p><strong>Amount:</strong> $${bookingData.amount}</p>
       </div>
       
       <div style="background-color: white; padding: 15px; border-radius: 6px; margin-bottom: 15px;">
@@ -118,7 +117,6 @@ export async function POST(request: NextRequest) {
       email,
       phone,
       notes: notes || '',
-      amount
     }
 
     // Send email with booking details
