@@ -72,17 +72,6 @@ const blogPosts = [
     author: "Dr. James Wilson",
     fullContent: "Full content for Preventing Workplace Injuries with Proper Ergonomics. Here you can add the detailed blog post content."
   },
-  {
-    id: 7,
-    title: "Preventing1 Workplace1 Injuries1 with1 Proper1 Ergonomics1",
-    excerpt: "Essential tips and exercises to prevent workplace injuries and maintain good posture during long hours at the desk.",
-    image: "/placeholder.svg?height=300&width=400",
-    category: "Workplace Health",
-    date: "March 3, 2024",
-    readTime: "4 min read",
-    author: "Dr. James Wilson",
-    fullContent: "Full content for Preventing1 Workplace1 Injuries1 with1 Proper1 Ergonomics1. Here you can add the detailed blog post content."
-  },
 ]
 
 const categories = [
@@ -130,44 +119,48 @@ export default function BlogPage() {
             <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
               Stay informed about physiotherapy, health tips, and recovery insights from our expert team.
             </p>
-            {/* Search Bar */}
-            <div className="max-w-md mx-auto relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-              <input
-                type="text"
-                placeholder="Search articles..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              />
-            </div>
+            {/* Search Bar - hide when a blog is selected */}
+            {!selectedBlog && (
+              <div className="max-w-md mx-auto relative">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                <input
+                  type="text"
+                  placeholder="Search articles..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                />
+              </div>
+            )}
           </motion.div>
         </div>
       </section>
 
-      {/* Categories */}
-      <section className="py-8 bg-white border-b">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap justify-center gap-4">
-            {categories.map((category, index) => (
-              <motion.button
-                key={category}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${
-                  selectedCategory === category
-                    ? "bg-blue-600 text-white"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                }`}
-                onClick={() => setSelectedCategory(category)}
-              >
-                {category}
-              </motion.button>
+      {/* Categories - hide when a blog is selected */}
+      {!selectedBlog && (
+        <section className="py-8 bg-white border-b">
+          <div className="container mx-auto px-4">
+            <div className="flex flex-wrap justify-center gap-4">
+              {categories.map((category, index) => (
+                <motion.button
+                  key={category}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${
+                    selectedCategory === category
+                      ? "bg-blue-600 text-white"
+                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                  }`}
+                  onClick={() => setSelectedCategory(category)}
+                >
+                  {category}
+                </motion.button>
             ))}
           </div>
         </div>
       </section>
+      )}
 
       {/* Blog Posts */}
       <section className="py-16">
@@ -213,7 +206,7 @@ export default function BlogPage() {
                 onClick={() => setSelectedBlog(null)}
                 className="mt-4"
               >
-                Close
+                Back
               </Button>
             </motion.div>
           )}
