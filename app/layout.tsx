@@ -88,7 +88,7 @@ export default function RootLayout({
         <main className="min-h-screen">{children}</main>
         <Footer />
         <WhatsAppFloat
-          phoneNumber="9910772756"
+          phoneNumber="919910772756"
           message="Hello! I would like to inquire about your physiotherapy services at Körper Heil."
         />
       </body>
