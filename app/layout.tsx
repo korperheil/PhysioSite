@@ -1,12 +1,17 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { Montserrat } from "next/font/google"
 import "./globals.css"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { WhatsAppFloat } from "@/components/whatsapp-float"
 
-const inter = Inter({ subsets: ["latin"] })
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-montserrat",
+})
 
 export const metadata: Metadata = {
   title: {
@@ -72,17 +77,17 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className={`${montserrat.variable} scroll-smooth`}>
       <head>
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
       </head>
-      <body className={`${inter.className} antialiased`}>
+      <body className={montserrat.className}>
         <Navigation />
         <main className="min-h-screen">{children}</main>
         <Footer />
-        <WhatsAppFloat 
+        <WhatsAppFloat
           phoneNumber="9910772756"
           message="Hello! I would like to inquire about your physiotherapy services at Körper Heil."
         />
