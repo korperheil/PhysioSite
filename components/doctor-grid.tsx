@@ -14,7 +14,7 @@ const doctors = [
 			"BPT, MPT(Neuro Physiotherapy), Physiotherapy, MIAP, DCPT",
 		certifications: "AFPA Certified Antenatal & Postnatal Coach ",
 		experience: "9+ years in neurorehabilitation",
-		image: "/sssss.png",
+		image: "/doctor_shalini.png",
 		expertise:
 			"Stroke recovery, spinal cord injuries, movement disorders, Women Healthcare - Ante-natal & Post Natal care, Post Natal weight management Yoga",
 		previous_affiliations: ["MAX Hospital, Pitampura", "BLK Hospital, Karol Bagh"],
