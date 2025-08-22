@@ -2,7 +2,7 @@
 id: 3
 title: "The Role of Physiotherapy in Sports Injury Recovery"
 excerpt: "Explore how physiotherapy plays a crucial role in helping athletes recover from sports injuries and return to peak performance."
-image: "/placeholder.svg?height=400&width=800"
+image: "/sports.jpg"
 category: "Sports"
 date: "March 10, 2024"
 readTime: "6 min read"

@@ -23,7 +23,7 @@ const fallbackBlogPosts: BlogPost[] = [
 		slug: "understanding-physiotherapy-complete-guide",
 		title: "Understanding Physiotherapy: A Complete Guide",
 		excerpt: "Learn about the fundamentals of physiotherapy, its benefits, and how it can help you recover from injuries and improve your overall health.",
-		image: "/placeholder.svg?height=300&width=400",
+		image: "/placeholder.svg",
 		category: "Education",
 		date: "March 15, 2024",
 		readTime: "5 min read",
@@ -34,7 +34,7 @@ const fallbackBlogPosts: BlogPost[] = [
 		slug: "essential-exercises-back-pain-relief",
 		title: "5 Essential Exercises for Back Pain Relief",
 		excerpt: "Discover effective exercises and techniques to alleviate back pain and strengthen your core muscles for better posture and mobility.",
-		image: "/placeholder.svg?height=300&width=400",
+		image: "/back_pain.jpg",
 		category: "Exercise",
 		date: "March 12, 2024",
 		readTime: "7 min read",
@@ -45,7 +45,7 @@ const fallbackBlogPosts: BlogPost[] = [
 		slug: "physiotherapy-sports-injury-recovery",
 		title: "The Role of Physiotherapy in Sports Injury Recovery",
 		excerpt: "Explore how physiotherapy plays a crucial role in helping athletes recover from sports injuries and return to peak performance.",
-		image: "/placeholder.svg?height=300&width=400",
+		image: "/sports.jpg",
 		category: "Sports",
 		date: "March 10, 2024",
 		readTime: "6 min read",
@@ -56,7 +56,7 @@ const fallbackBlogPosts: BlogPost[] = [
 		slug: "post-surgery-rehabilitation-guide",
 		title: "Post-Surgery Rehabilitation: Your Journey Back to Strength",
 		excerpt: "Navigate your post-surgery recovery with confidence. Learn what to expect during rehabilitation, how to set realistic goals, and discover strategies that will help you heal stronger than before.",
-		image: "/placeholder.svg?height=300&width=400",
+		image: "/post_surgery.jpg",
 		category: "Rehabilitation",
 		date: "March 8, 2024",
 		readTime: "8 min read",
@@ -67,7 +67,7 @@ const fallbackBlogPosts: BlogPost[] = [
 		slug: "managing-chronic-pain-physiotherapy",
 		title: "Breaking Free from Chronic Pain: A Physiotherapy Approach That Works",
 		excerpt: "Discover how modern physiotherapy is revolutionizing chronic pain management. Learn evidence-based strategies that address the root causes, not just symptoms, for lasting relief and improved quality of life.",
-		image: "/placeholder.svg?height=300&width=400",
+		image: "/chronic_pain.jpg",
 		category: "Pain Management",
 		date: "March 5, 2024",
 		readTime: "9 min read",
@@ -78,7 +78,7 @@ const fallbackBlogPosts: BlogPost[] = [
 		slug: "preventing-workplace-injuries-ergonomics",
 		title: "Preventing Workplace Injuries with Proper Ergonomics",
 		excerpt: "Essential tips and exercises to prevent workplace injuries and maintain good posture during long hours at the desk.",
-		image: "/placeholder.svg?height=300&width=400",
+		image: "/IMG_9773.jpg",
 		category: "Workplace Health",
 		date: "March 3, 2024",
 		readTime: "4 min read",
@@ -133,9 +133,10 @@ export default function BlogPage() {
 					</div>
 				</div>
 			</section>
+			
 
 			{/* Categories */}
-			<section className="py-8 bg-white border-b">
+			{/* <section className="py-8 bg-white border-b">
 				<div className="container mx-auto px-4">
 					<div className="flex flex-wrap justify-center gap-4">
 						{categories.map((category) => (
@@ -149,7 +150,7 @@ export default function BlogPage() {
 						))}
 					</div>
 				</div>
-			</section>
+			</section> */}
 
 			{/* Blog Posts */}
 			<section className="py-16">
@@ -201,6 +202,7 @@ export default function BlogPage() {
 					</div>
 				</div>
 			</section>
+
 		</div>
 	)
 }

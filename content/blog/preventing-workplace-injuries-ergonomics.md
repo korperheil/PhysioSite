@@ -2,7 +2,7 @@
 id: 6
 title: "Preventing Workplace Injuries with Proper Ergonomics"
 excerpt: "Essential tips and exercises to prevent workplace injuries and maintain good posture during long hours at the desk."
-image: "/placeholder.svg?height=400&width=800"
+image: "/IMG_9773.jpg"
 category: "Workplace Health"
 date: "March 3, 2024"
 readTime: "4 min read"

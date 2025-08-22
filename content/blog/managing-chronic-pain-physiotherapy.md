@@ -2,7 +2,7 @@
 id: 5
 title: "Breaking Free from Chronic Pain: A Physiotherapy Approach That Works"
 excerpt: "Discover how modern physiotherapy is revolutionizing chronic pain management. Learn evidence-based strategies that address the root causes, not just symptoms, for lasting relief and improved quality of life."
-image: "/placeholder.svg?height=400&width=800"
+image: "/chronic_pain.jpg"
 category: "Pain Management"
 date: "March 5, 2024"
 readTime: "9 min read"

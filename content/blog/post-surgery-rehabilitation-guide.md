@@ -2,7 +2,7 @@
 id: 4
 title: "Post-Surgery Rehabilitation: Your Journey Back to Strength"
 excerpt: "Navigate your post-surgery recovery with confidence. Learn what to expect during rehabilitation, how to set realistic goals, and discover strategies that will help you heal stronger than before."
-image: "/placeholder.svg?height=400&width=800"
+image: "/post_surgery.jpg"
 category: "Rehabilitation"
 date: "March 8, 2024"
 readTime: "8 min read"

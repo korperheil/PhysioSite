@@ -2,7 +2,7 @@
 id: 1
 title: "Understanding Physiotherapy: A Complete Guide"
 excerpt: "Learn about the fundamentals of physiotherapy, its benefits, and how it can help you recover from injuries and improve your overall health."
-image: "/placeholder.svg?height=400&width=800"
+image: "/pain_management.jpg"
 category: "Education"
 date: "March 15, 2024"
 readTime: "5 min read"

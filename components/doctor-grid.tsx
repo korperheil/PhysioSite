@@ -14,7 +14,7 @@ const doctors = [
 			"BPT, MPT(Neuro Physiotherapy), Physiotherapy, MIAP, DCPT",
 		certifications: "AFPA Certified Antenatal & Postnatal Coach ",
 		experience: "9+ years in neurorehabilitation",
-		image: "/placeholder.svg?height=300&width=300",
+		image: "/sssss.png",
 		expertise:
 			"Stroke recovery, spinal cord injuries, movement disorders, Women Healthcare - Ante-natal & Post Natal care, Post Natal weight management Yoga",
 		previous_affiliations: ["MAX Hospital, Pitampura", "BLK Hospital, Karol Bagh"],
@@ -48,12 +48,12 @@ export function DoctorGrid() {
 					viewport={{ once: true }}
 					className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
 				>
-					<div className="relative h-64 w-full">
+					<div className="relative h-80 w-80 mx-auto">
 						<Image
 							src={doctor.image || "/placeholder.svg"}
 							alt={doctor.name}
 							fill
-							className="object-cover"
+							className="object-cover rounded-t-xl"
 						/>
 					</div>
 

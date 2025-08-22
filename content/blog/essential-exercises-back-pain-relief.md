@@ -2,7 +2,7 @@
 id: 2
 title: "5 Essential Exercises for Back Pain Relief"
 excerpt: "Discover effective exercises and techniques to alleviate back pain and strengthen your core muscles for better posture and mobility."
-image: "/placeholder.svg?height=400&width=800"
+image: "/back_pain.jpg"
 category: "Exercise"
 date: "March 12, 2024"
 readTime: "7 min read"
