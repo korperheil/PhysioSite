@@ -1,18 +1,28 @@
-"use client"
-import { useState } from "react"
-import { motion } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Calendar, Clock, Search } from "lucide-react"
+import { Calendar, Clock } from "lucide-react"
+import { getAllBlogPosts, getAllCategories } from '@/lib/blog/blogUtils'
 
-const blogPosts = [
+interface BlogPost {
+  id: number
+  slug: string
+  title: string
+  excerpt: string
+  image: string
+  category: string
+  date: string
+  readTime: string
+  author: string
+}
+
+// Fallback blog data for when markdown files aren't available
+const fallbackBlogPosts: BlogPost[] = [
 	{
 		id: 1,
 		slug: "understanding-physiotherapy-complete-guide",
 		title: "Understanding Physiotherapy: A Complete Guide",
-		excerpt:
-			"Learn about the fundamentals of physiotherapy, its benefits, and how it can help you recover from injuries and improve your overall health.",
+		excerpt: "Learn about the fundamentals of physiotherapy, its benefits, and how it can help you recover from injuries and improve your overall health.",
 		image: "/placeholder.svg?height=300&width=400",
 		category: "Education",
 		date: "March 15, 2024",
@@ -23,8 +33,7 @@ const blogPosts = [
 		id: 2,
 		slug: "essential-exercises-back-pain-relief",
 		title: "5 Essential Exercises for Back Pain Relief",
-		excerpt:
-			"Discover effective exercises and techniques to alleviate back pain and strengthen your core muscles for better posture and mobility.",
+		excerpt: "Discover effective exercises and techniques to alleviate back pain and strengthen your core muscles for better posture and mobility.",
 		image: "/placeholder.svg?height=300&width=400",
 		category: "Exercise",
 		date: "March 12, 2024",
@@ -35,8 +44,7 @@ const blogPosts = [
 		id: 3,
 		slug: "physiotherapy-sports-injury-recovery",
 		title: "The Role of Physiotherapy in Sports Injury Recovery",
-		excerpt:
-			"Explore how physiotherapy plays a crucial role in helping athletes recover from sports injuries and return to peak performance.",
+		excerpt: "Explore how physiotherapy plays a crucial role in helping athletes recover from sports injuries and return to peak performance.",
 		image: "/placeholder.svg?height=300&width=400",
 		category: "Sports",
 		date: "March 10, 2024",
@@ -46,9 +54,8 @@ const blogPosts = [
 	{
 		id: 4,
 		slug: "post-surgery-rehabilitation-guide",
-		title: "Post-Surgery Rehabilitation: What to Expect",
-		excerpt:
-			"A comprehensive guide to post-surgery rehabilitation, including timelines, exercises, and tips for optimal recovery.",
+		title: "Post-Surgery Rehabilitation: Your Journey Back to Strength",
+		excerpt: "Navigate your post-surgery recovery with confidence. Learn what to expect during rehabilitation, how to set realistic goals, and discover strategies that will help you heal stronger than before.",
 		image: "/placeholder.svg?height=300&width=400",
 		category: "Rehabilitation",
 		date: "March 8, 2024",
@@ -58,9 +65,8 @@ const blogPosts = [
 	{
 		id: 5,
 		slug: "managing-chronic-pain-physiotherapy",
-		title: "Managing Chronic Pain Through Physiotherapy",
-		excerpt:
-			"Learn about effective physiotherapy techniques for managing chronic pain and improving quality of life for long-term sufferers.",
+		title: "Breaking Free from Chronic Pain: A Physiotherapy Approach That Works",
+		excerpt: "Discover how modern physiotherapy is revolutionizing chronic pain management. Learn evidence-based strategies that address the root causes, not just symptoms, for lasting relief and improved quality of life.",
 		image: "/placeholder.svg?height=300&width=400",
 		category: "Pain Management",
 		date: "March 5, 2024",
@@ -71,8 +77,7 @@ const blogPosts = [
 		id: 6,
 		slug: "preventing-workplace-injuries-ergonomics",
 		title: "Preventing Workplace Injuries with Proper Ergonomics",
-		excerpt:
-			"Essential tips and exercises to prevent workplace injuries and maintain good posture during long hours at the desk.",
+		excerpt: "Essential tips and exercises to prevent workplace injuries and maintain good posture during long hours at the desk.",
 		image: "/placeholder.svg?height=300&width=400",
 		category: "Workplace Health",
 		date: "March 3, 2024",
@@ -81,44 +86,43 @@ const blogPosts = [
 	},
 ]
 
-const categories = [
-	"All",
-	"Education",
-	"Exercise",
-	"Sports",
-	"Rehabilitation",
-	"Pain Management",
-	"Workplace Health",
-]
-
 export default function BlogPage() {
-	const [selectedCategory, setSelectedCategory] = useState("All")
-	const [searchTerm, setSearchTerm] = useState("")
-	const [visibleCount, setVisibleCount] = useState(6)
-
-	const filteredPosts = blogPosts.filter((post) => {
-		const matchesCategory =
-			selectedCategory === "All" || post.category === selectedCategory
-		const matchesSearch =
-			post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-			post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
-			post.author.toLowerCase().includes(searchTerm.toLowerCase())
-		return matchesCategory && matchesSearch
-	})
-
-	const visiblePosts = filteredPosts.slice(0, visibleCount)
-
+	// Try to get posts from markdown files, fall back to static data
+	let blogPosts: BlogPost[]
+	let categories: string[]
+	
+	try {
+		const markdownPosts = getAllBlogPosts()
+		const markdownCategories = getAllCategories()
+		
+		if (markdownPosts.length > 0) {
+			blogPosts = markdownPosts.map((post, index) => ({
+				id: index + 1,
+				slug: post.slug,
+				title: post.title,
+				excerpt: post.excerpt,
+				image: post.image || "/placeholder.svg?height=300&width=400",
+				category: post.category,
+				date: post.date,
+				readTime: post.readTime,
+				author: post.author
+			}))
+			categories = markdownCategories
+		} else {
+			blogPosts = fallbackBlogPosts
+			categories = ["All", "Education", "Exercise", "Sports", "Rehabilitation", "Pain Management", "Workplace Health"]
+		}
+	} catch (error) {
+		console.log("Using fallback blog data:", error)
+		blogPosts = fallbackBlogPosts
+		categories = ["All", "Education", "Exercise", "Sports", "Rehabilitation", "Pain Management", "Workplace Health"]
+	}
 	return (
 		<div className="min-h-screen bg-gray-50">
 			{/* Hero Section */}
 			<section className="bg-gradient-to-br from-blue-50 to-white py-20">
 				<div className="container mx-auto px-4">
-					<motion.div
-						initial={{ opacity: 0, y: 50 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.8 }}
-						className="text-center"
-					>
+					<div className="text-center">
 						<h1 className="text-5xl font-bold text-gray-900 mb-6">
 							Our <span className="text-blue-600">Blog</span>
 						</h1>
@@ -126,17 +130,7 @@ export default function BlogPage() {
 							Stay informed about physiotherapy, health tips, and recovery
 							insights from our expert team.
 						</p>
-						<div className="max-w-md mx-auto relative">
-							<Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-							<input
-								type="text"
-								placeholder="Search articles..."
-								value={searchTerm}
-								onChange={(e) => setSearchTerm(e.target.value)}
-								className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-							/>
-						</div>
-					</motion.div>
+					</div>
 				</div>
 			</section>
 
@@ -144,21 +138,14 @@ export default function BlogPage() {
 			<section className="py-8 bg-white border-b">
 				<div className="container mx-auto px-4">
 					<div className="flex flex-wrap justify-center gap-4">
-						{categories.map((category, index) => (
-							<motion.button
+						{categories.map((category) => (
+							<Button
 								key={category}
-								initial={{ opacity: 0, y: 20 }}
-								animate={{ opacity: 1, y: 0 }}
-								transition={{ duration: 0.5, delay: index * 0.1 }}
-								className={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${
-									selectedCategory === category
-										? "bg-blue-600 text-white"
-										: "bg-gray-100 text-gray-700 hover:bg-gray-200"
-								}`}
-								onClick={() => setSelectedCategory(category)}
+								variant={category === "All" ? "default" : "outline"}
+								className="px-6 py-2 rounded-full text-sm font-medium"
 							>
 								{category}
-							</motion.button>
+							</Button>
 						))}
 					</div>
 				</div>
@@ -168,12 +155,9 @@ export default function BlogPage() {
 			<section className="py-16">
 				<div className="container mx-auto px-4">
 					<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-						{visiblePosts.map((post, index) => (
-							<motion.article
+						{blogPosts.map((post) => (
+							<article
 								key={post.id}
-								initial={{ opacity: 0, y: 50 }}
-								animate={{ opacity: 1, y: 0 }}
-								transition={{ duration: 0.8, delay: index * 0.1 }}
 								className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
 							>
 								<Link href={`/blog/${post.slug}`}>
@@ -212,27 +196,9 @@ export default function BlogPage() {
 										</span>
 									</div>
 								</Link>
-							</motion.article>
+							</article>
 						))}
 					</div>
-
-					{/* Load More Button */}
-					{visibleCount < filteredPosts.length && (
-						<motion.div
-							initial={{ opacity: 0, y: 30 }}
-							animate={{ opacity: 1, y: 0 }}
-							transition={{ duration: 0.8, delay: 0.6 }}
-							className="text-center mt-12"
-						>
-							<Button
-								size="lg"
-								className="bg-blue-600 hover:bg-blue-700"
-								onClick={() => setVisibleCount((prev) => prev + 6)}
-							>
-								Load More Articles
-							</Button>
-						</motion.div>
-					)}
 				</div>
 			</section>
 		</div>
