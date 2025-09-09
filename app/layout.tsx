@@ -8,7 +8,7 @@ import { WhatsAppFloat } from "@/components/whatsapp-float"
 
 
 const montserrat = Montserrat({
-  subsets: ["latin"],
+  subsets: ["latin"], 
   display: "swap",
   variable: "--font-montserrat",
 })
@@ -80,7 +80,7 @@ export default function RootLayout({
     <html lang="en" className={`${montserrat.variable} scroll-smooth`}>
       <head>
         <link rel="icon" href="/logo.svg" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" href="/logo.svg" />
         <link rel="manifest" href="/manifest.json" />
       </head>
       <body className={montserrat.className}>
