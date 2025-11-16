@@ -1,11 +1,11 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Montserrat } from "next/font/google"
+import Script from "next/script"
 import "./globals.css"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { WhatsAppFloat } from "@/components/whatsapp-float"
-
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -37,8 +37,8 @@ export const metadata: Metadata = {
     title: "Körper Heil - Expert Physiotherapy Services",
     description:
       "Leading physiotherapy clinic offering expert rehabilitation services, sports injury treatment, and wellness programs.",
-    url: "https://Körper-Heil.com",
-    siteName: "PhysioHeal Clinic",
+    url: "https://korperheil.com",
+    siteName: "Korper Heil Clinic",
     images: [
       {
         url: "/og-image.jpg",
@@ -68,20 +68,48 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-    generator: 'v0.dev'
+  generator: "v0.dev",
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${montserrat.variable} scroll-smooth`}>
       <head>
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
+
+        {/* Meta Pixel - loads SDK then initializes */}
+        <Script
+          id="meta-pixel-sdk"
+          strategy="afterInteractive"
+          src="https://connect.facebook.net/en_US/fbevents.js"
+        />
+        <Script id="meta-pixel-init" strategy="afterInteractive">
+          {`
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', 'YOUR_PIXEL_ID');
+            fbq('track', 'PageView');
+          `}
+        </Script>
+
+        {/* noscript fallback */}
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            alt=""
+            src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
+          />
+        </noscript>
       </head>
       <body className={montserrat.className}>
         <Navigation />
