@@ -108,13 +108,19 @@ export function Footer() {
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
           <p className="text-gray-400">
-            © 2025 Körper Heil. All rights reserved. |
+            © 2026 Körper Heil. All rights reserved. |
             <Link href="/privacy" className="hover:text-white transition-colors ml-1">
               Privacy Policy
             </Link>{" "}
             |
             <Link href="/terms" className="hover:text-white transition-colors ml-1">
               Terms of Service
+            </Link>
+          </p>
+          <p className="text-gray-500 text-sm mt-2">
+            Developed by{" "}
+            <Link href="https://www.linkedin.com/in/prasan-bora/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+              Prasan Bora
             </Link>
           </p>
         </div>
